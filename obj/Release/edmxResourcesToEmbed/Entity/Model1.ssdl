@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OgrenciSinavModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TblAkademisyen">
+    <Key>
+      <PropertyRef Name="Akademisyenid" />
+    </Key>
+    <Property Name="Akademisyenid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AkademisyenAd" Type="nvarchar" MaxLength="30" />
+    <Property Name="AkademisyenSoyad" Type="nvarchar" MaxLength="30" />
+    <Property Name="Unvan" Type="nvarchar" MaxLength="30" />
+    <Property Name="AkademisyenNumara" Type="char" MaxLength="5" />
+    <Property Name="AkademisyenSifre" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TblBolum">
+    <Key>
+      <PropertyRef Name="Bolumid" />
+    </Key>
+    <Property Name="Bolumid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BolumAd" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="TblDersler">
+    <Key>
+      <PropertyRef Name="Dersid" />
+    </Key>
+    <Property Name="Dersid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DersAd" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TblNotlar">
+    <Key>
+      <PropertyRef Name="Notid" />
+    </Key>
+    <Property Name="Notid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sinav1" Type="int" />
+    <Property Name="Sinav2" Type="int" />
+    <Property Name="Sinav3" Type="int" />
+    <Property Name="Quiz1" Type="int" />
+    <Property Name="Quiz2" Type="int" />
+    <Property Name="Proje" Type="int" />
+    <Property Name="Ortalama" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Ders" Type="int" />
+    <Property Name="Ogrenci" Type="int" />
+  </EntityType>
+  <EntityType Name="TblOgrenci">
+    <Key>
+      <PropertyRef Name="Ogrid" />
+    </Key>
+    <Property Name="Ogrid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OgrAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="OgrSoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="OgrNumara" Type="char" MaxLength="5" />
+    <Property Name="OgrSifre" Type="nvarchar" MaxLength="10" />
+    <Property Name="OgrMail" Type="nvarchar" MaxLength="50" />
+    <Property Name="OgrResim" Type="nvarchar" MaxLength="100" />
+    <Property Name="OgrBolum" Type="int" />
+    <Property Name="OgrDurum" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OgrenciSinav.dbo.View_2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_2">
+    <Key>
+      <PropertyRef Name="Notid" />
+    </Key>
+    <Property Name="Notid" Type="int" Nullable="false" />
+    <Property Name="OgrAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="OgrSoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="OgrNumara" Type="char" MaxLength="5" />
+    <Property Name="DersAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sinav1" Type="int" />
+    <Property Name="Sinav2" Type="int" />
+    <Property Name="Sinav3" Type="int" />
+    <Property Name="Quiz1" Type="int" />
+    <Property Name="Quiz2" Type="int" />
+    <Property Name="Proje" Type="int" />
+    <Property Name="Ortalama" Type="decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <Association Name="FK_TblNotlar_TblDersler">
+    <End Role="TblDersler" Type="Self.TblDersler" Multiplicity="0..1" />
+    <End Role="TblNotlar" Type="Self.TblNotlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblDersler">
+        <PropertyRef Name="Dersid" />
+      </Principal>
+      <Dependent Role="TblNotlar">
+        <PropertyRef Name="Ders" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblNotlar_TblOgrenci">
+    <End Role="TblOgrenci" Type="Self.TblOgrenci" Multiplicity="0..1" />
+    <End Role="TblNotlar" Type="Self.TblNotlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOgrenci">
+        <PropertyRef Name="Ogrid" />
+      </Principal>
+      <Dependent Role="TblNotlar">
+        <PropertyRef Name="Ogrenci" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblOgrenci_TblBolum">
+    <End Role="TblBolum" Type="Self.TblBolum" Multiplicity="0..1" />
+    <End Role="TblOgrenci" Type="Self.TblOgrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblBolum">
+        <PropertyRef Name="Bolumid" />
+      </Principal>
+      <Dependent Role="TblOgrenci">
+        <PropertyRef Name="OgrBolum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Notlar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Notlar2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Notlar3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="OgrenciSinavModelStoreContainer">
+    <EntitySet Name="TblAkademisyen" EntityType="Self.TblAkademisyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblBolum" EntityType="Self.TblBolum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblDersler" EntityType="Self.TblDersler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblNotlar" EntityType="Self.TblNotlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblOgrenci" EntityType="Self.TblOgrenci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_2" EntityType="Self.View_2" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_2].[Notid] AS [Notid], 
+    [View_2].[OgrAd] AS [OgrAd], 
+    [View_2].[OgrSoyad] AS [OgrSoyad], 
+    [View_2].[OgrNumara] AS [OgrNumara], 
+    [View_2].[DersAd] AS [DersAd], 
+    [View_2].[Sinav1] AS [Sinav1], 
+    [View_2].[Sinav2] AS [Sinav2], 
+    [View_2].[Sinav3] AS [Sinav3], 
+    [View_2].[Quiz1] AS [Quiz1], 
+    [View_2].[Quiz2] AS [Quiz2], 
+    [View_2].[Proje] AS [Proje], 
+    [View_2].[Ortalama] AS [Ortalama]
+    FROM [dbo].[View_2] AS [View_2]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_TblNotlar_TblDersler" Association="Self.FK_TblNotlar_TblDersler">
+      <End Role="TblDersler" EntitySet="TblDersler" />
+      <End Role="TblNotlar" EntitySet="TblNotlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblNotlar_TblOgrenci" Association="Self.FK_TblNotlar_TblOgrenci">
+      <End Role="TblOgrenci" EntitySet="TblOgrenci" />
+      <End Role="TblNotlar" EntitySet="TblNotlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblOgrenci_TblBolum" Association="Self.FK_TblOgrenci_TblBolum">
+      <End Role="TblBolum" EntitySet="TblBolum" />
+      <End Role="TblOgrenci" EntitySet="TblOgrenci" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

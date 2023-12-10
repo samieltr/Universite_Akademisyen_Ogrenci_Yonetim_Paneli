@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OgrenciSinavModelStoreContainer" CdmEntityContainer="OgrenciSinavEntities">
+    <EntitySetMapping Name="TblAkademisyen">
+      <EntityTypeMapping TypeName="OgrenciSinavModel.TblAkademisyen">
+        <MappingFragment StoreEntitySet="TblAkademisyen">
+          <ScalarProperty Name="Akademisyenid" ColumnName="Akademisyenid" />
+          <ScalarProperty Name="AkademisyenAd" ColumnName="AkademisyenAd" />
+          <ScalarProperty Name="AkademisyenSoyad" ColumnName="AkademisyenSoyad" />
+          <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+          <ScalarProperty Name="AkademisyenNumara" ColumnName="AkademisyenNumara" />
+          <ScalarProperty Name="AkademisyenSifre" ColumnName="AkademisyenSifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblBolum">
+      <EntityTypeMapping TypeName="OgrenciSinavModel.TblBolum">
+        <MappingFragment StoreEntitySet="TblBolum">
+          <ScalarProperty Name="Bolumid" ColumnName="Bolumid" />
+          <ScalarProperty Name="BolumAd" ColumnName="BolumAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblDersler">
+      <EntityTypeMapping TypeName="OgrenciSinavModel.TblDersler">
+        <MappingFragment StoreEntitySet="TblDersler">
+          <ScalarProperty Name="Dersid" ColumnName="Dersid" />
+          <ScalarProperty Name="DersAd" ColumnName="DersAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblOgrenci">
+      <EntityTypeMapping TypeName="OgrenciSinavModel.TblOgrenci">
+        <MappingFragment StoreEntitySet="TblOgrenci">
+          <ScalarProperty Name="OgrDurum" ColumnName="OgrDurum" />
+          <ScalarProperty Name="Ogrid" ColumnName="Ogrid" />
+          <ScalarProperty Name="OgrAd" ColumnName="OgrAd" />
+          <ScalarProperty Name="OgrSoyad" ColumnName="OgrSoyad" />
+          <ScalarProperty Name="OgrNumara" ColumnName="OgrNumara" />
+          <ScalarProperty Name="OgrSifre" ColumnName="OgrSifre" />
+          <ScalarProperty Name="OgrMail" ColumnName="OgrMail" />
+          <ScalarProperty Name="OgrResim" ColumnName="OgrResim" />
+          <ScalarProperty Name="OgrBolum" ColumnName="OgrBolum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Notlar" FunctionName="OgrenciSinavModel.Store.Notlar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OgrenciSinavModel.Notlar_Result">
+          <ScalarProperty Name="Not_ID" ColumnName="Not ID" />
+          <ScalarProperty Name="Ders_Adı" ColumnName="Ders Adı" />
+          <ScalarProperty Name="Öğrenci" ColumnName="Öğrenci" />
+          <ScalarProperty Name="Sinav1" ColumnName="Sinav1" />
+          <ScalarProperty Name="Sinav2" ColumnName="Sinav2" />
+          <ScalarProperty Name="Sinav3" ColumnName="Sinav3" />
+          <ScalarProperty Name="Quiz1" ColumnName="Quiz1" />
+          <ScalarProperty Name="Quiz2" ColumnName="Quiz2" />
+          <ScalarProperty Name="Proje" ColumnName="Proje" />
+          <ScalarProperty Name="Ortalama" ColumnName="Ortalama" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="TblNotlar">
+      <EntityTypeMapping TypeName="OgrenciSinavModel.TblNotlar">
+        <MappingFragment StoreEntitySet="TblNotlar">
+          <ScalarProperty Name="Ogrenci" ColumnName="Ogrenci" />
+          <ScalarProperty Name="Ders" ColumnName="Ders" />
+          <ScalarProperty Name="Ortalama" ColumnName="Ortalama" />
+          <ScalarProperty Name="Proje" ColumnName="Proje" />
+          <ScalarProperty Name="Quiz2" ColumnName="Quiz2" />
+          <ScalarProperty Name="Quiz1" ColumnName="Quiz1" />
+          <ScalarProperty Name="Sinav3" ColumnName="Sinav3" />
+          <ScalarProperty Name="Sinav2" ColumnName="Sinav2" />
+          <ScalarProperty Name="Sinav1" ColumnName="Sinav1" />
+          <ScalarProperty Name="Notid" ColumnName="Notid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Notlar2" FunctionName="OgrenciSinavModel.Store.Notlar2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OgrenciSinavModel.Notlar2_Result">
+          <ScalarProperty Name="Not_ID" ColumnName="Not ID" />
+          <ScalarProperty Name="Ders_Adı" ColumnName="Ders Adı" />
+          <ScalarProperty Name="Öğrenci" ColumnName="Öğrenci" />
+          <ScalarProperty Name="Sinav1" ColumnName="Sinav1" />
+          <ScalarProperty Name="Sinav2" ColumnName="Sinav2" />
+          <ScalarProperty Name="Sinav3" ColumnName="Sinav3" />
+          <ScalarProperty Name="Quiz1" ColumnName="Quiz1" />
+          <ScalarProperty Name="Quiz2" ColumnName="Quiz2" />
+          <ScalarProperty Name="Proje" ColumnName="Proje" />
+          <ScalarProperty Name="Ortalama" ColumnName="Ortalama" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="View_2">
+      <EntityTypeMapping TypeName="OgrenciSinavModel.View_2">
+        <MappingFragment StoreEntitySet="View_2">
+          <ScalarProperty Name="Ortalama" ColumnName="Ortalama" />
+          <ScalarProperty Name="Proje" ColumnName="Proje" />
+          <ScalarProperty Name="Quiz2" ColumnName="Quiz2" />
+          <ScalarProperty Name="Quiz1" ColumnName="Quiz1" />
+          <ScalarProperty Name="Sinav3" ColumnName="Sinav3" />
+          <ScalarProperty Name="Sinav2" ColumnName="Sinav2" />
+          <ScalarProperty Name="Sinav1" ColumnName="Sinav1" />
+          <ScalarProperty Name="DersAd" ColumnName="DersAd" />
+          <ScalarProperty Name="OgrNumara" ColumnName="OgrNumara" />
+          <ScalarProperty Name="OgrSoyad" ColumnName="OgrSoyad" />
+          <ScalarProperty Name="OgrAd" ColumnName="OgrAd" />
+          <ScalarProperty Name="Notid" ColumnName="Notid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Notlar3" FunctionName="OgrenciSinavModel.Store.Notlar3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OgrenciSinavModel.Notlar3_Result">
+          <ScalarProperty Name="Not_ID" ColumnName="Not ID" />
+          <ScalarProperty Name="Ders_Adı" ColumnName="Ders Adı" />
+          <ScalarProperty Name="Öğrenci" ColumnName="Öğrenci" />
+          <ScalarProperty Name="Sinav1" ColumnName="Sinav1" />
+          <ScalarProperty Name="Sinav2" ColumnName="Sinav2" />
+          <ScalarProperty Name="Sinav3" ColumnName="Sinav3" />
+          <ScalarProperty Name="Quiz1" ColumnName="Quiz1" />
+          <ScalarProperty Name="Quiz2" ColumnName="Quiz2" />
+          <ScalarProperty Name="Proje" ColumnName="Proje" />
+          <ScalarProperty Name="Ortalama" ColumnName="Ortalama" />
+          <ScalarProperty Name="Ogrenci" ColumnName="Ogrenci" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
